@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Deret Premium</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-animation">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Deret <span>Matematika</span></h1>
+            <p>Selesaikan masalah deret dengan langkah-langkah</p>
+        </header>
+
+        <main class="glass-panel">
+            <nav class="tabs">
+                <button class="tab-btn active" data-target="aritmatika">Deret Aritmatika</button>
+                <button class="tab-btn" data-target="geometri">Deret Geometri</button>
+                <button class="tab-btn" data-target="pangkat">Deret Pangkat</button>
+                <button class="tab-btn" data-target="sigma">Sigma Dinamis</button>
+            </nav>
+
+            <div class="content-area">
+                <!-- Aritmatika -->
+                <section id="aritmatika" class="tab-content active">
+                    <h2>Deret Aritmatika</h2>
+                    <p class="subtitle">Menghitung suku ke-n dan jumlah n suku pertama dengan beda (selisih) yang
+                        konstan.</p>
+                    <form id="form-aritmatika" class="calc-form">
+                        <div class="input-group">
+                            <label for="a-arit">Suku Pertama (a)</label>
+                            <input type="number" step="any" id="a-arit" required placeholder="Contoh: 2">
+                        </div>
+                        <div class="input-group">
+                            <label for="b-arit">Beda (b)</label>
+                            <input type="number" step="any" id="b-arit" required placeholder="Contoh: 3">
+                        </div>
+                        <div class="input-group">
+                            <label for="n-arit">Suku ke- (n)</label>
+                            <input type="number" id="n-arit" required min="1" placeholder="Contoh: 10">
+                        </div>
+                        <button type="submit" class="btn-glow">Hitung</button>
+                    </form>
+                    <div id="result-aritmatika" class="result-box hidden"></div>
+                </section>
+
+                <!-- Geometri -->
+                <section id="geometri" class="tab-content">
+                    <h2>Deret Geometri</h2>
+                    <p class="subtitle">Menghitung suku ke-n dan jumlah n suku pertama dengan rasio yang konstan.</p>
+                    <form id="form-geometri" class="calc-form">
+                        <div class="input-group">
+                            <label for="a-geo">Suku Pertama (a)</label>
+                            <input type="number" step="any" id="a-geo" required placeholder="Contoh: 3">
+                        </div>
+                        <div class="input-group">
+                            <label for="r-geo">Rasio (r)</label>
+                            <input type="number" step="any" id="r-geo" required placeholder="Contoh: 2">
+                        </div>
+                        <div class="input-group">
+                            <label for="n-geo">Suku ke- (n)</label>
+                            <input type="number" id="n-geo" required min="1" placeholder="Contoh: 5">
+                        </div>
+                        <button type="submit" class="btn-glow">Hitung</button>
+                    </form>
+                    <div id="result-geometri" class="result-box hidden"></div>
+                </section>
+
+                <!-- Deret Pangkat -->
+                <section id="pangkat" class="tab-content">
+                    <h2>Deret Pangkat</h2>
+                    <p class="subtitle">Menghitung jumlah n suku pertama dari deret bilangan asli berpangkat k.</p>
+                    <form id="form-pangkat" class="calc-form">
+                        <div class="input-group">
+                            <label for="n-pang">Jumlah Suku (n)</label>
+                            <input type="number" id="n-pang" required min="1" placeholder="Contoh: 10">
+                        </div>
+                        <div class="input-group">
+                            <label for="c-pang">Koefisien (x)</label>
+                            <input type="number" step="any" id="c-pang" value="1" required
+                                placeholder="Contoh: 2 (Opsional)">
+                        </div>
+                        <div class="input-group">
+                            <label for="k-pang">Pangkat (k)</label>
+                            <select id="k-pang" required>
+                                <option value="1">Pangkat 1 (c(1) + c(2) + c(3) + ...)</option>
+                                <option value="2">Pangkat 2 (c(1²) + c(2²) + c(3²) + ...)</option>
+                                <option value="3">Pangkat 3 (c(1³) + c(2³) + c(3³) + ...)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-glow">Hitung</button>
+                    </form>
+                    <div id="result-pangkat" class="result-box hidden"></div>
+                </section>
+
+                <!-- Sigma Dinamis -->
+                <section id="sigma" class="tab-content">
+                    <h2>Sigma Dinamis</h2>
+                    <p class="subtitle">Menghitung jumlah deret campuran / polinomial dengan batas bawah dan atas
+                        khusus.</p>
+                    <form id="form-sigma" class="calc-form" style="display: block;">
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+                            <div class="input-group">
+                                <label for="start-sigma">Batas Bawah (Awal)</label>
+                                <input type="number" id="start-sigma" required min="1" value="1"
+                                    placeholder="Contoh: 11">
+                            </div>
+                            <div class="input-group">
+                                <label for="end-sigma">Batas Atas (Akhir)</label>
+                                <input type="number" id="end-sigma" required min="1" placeholder="Contoh: 20">
+                            </div>
+                        </div>
+
+                        <div id="dynamic-terms"
+                            style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1rem;">
+                            <!-- Terms will be added dynamically via JS -->
+                        </div>
+
+                        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                            <button type="button" id="btn-add-term" class="btn-glow"
+                                style="flex: 1; background: rgba(255,255,255,0.1); border: 1px dashed var(--glass-border); box-shadow: none;">+
+                                Tambah Suku</button>
+                            <button type="submit" class="btn-glow" style="flex: 2;">Hitung Total</button>
+                        </div>
+                    </form>
+                    <div id="result-sigma" class="result-box hidden"></div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
